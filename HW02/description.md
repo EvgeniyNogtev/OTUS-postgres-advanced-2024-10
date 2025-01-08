@@ -56,4 +56,4 @@
 
 11. Каталог /var/lib/postgres/
 
-![alt text](image-7.png)
+    ![alt text](image-7.png)

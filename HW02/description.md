@@ -23,15 +23,18 @@
 
 5. Создать каталог `jaykay@vm-pgadvance:/var/lib$ sudo mkdir postgres`
 
-![alt text](image-1.png)
+    ![alt text](image-1.png)
 
 6. Создание и запуск контейнера 
+
     `sudo docker run --name test1 -p 5432:5432 -v /var/lib/postgres:/var/lib/postgresql/data -e POSTGRES_PASSWORD=password -d postgres:16.4`
 
 7. Подключение к postgres
     - через psql `sudo docker exec -it test1 psql --username=postgres --dbname=postgres`
+
     ![alt text](image-2.png)
-    - через IDE 
+    - через IDE
+
     ![alt text](image-3.png)
 
 8. Создание таблицы с данными
@@ -41,13 +44,16 @@
     SELECT * FROM test;
     ```
     ![alt text](image-4.png)
+
     ![alt text](image-5.png)
 
 9. Остановить контейнер - `sudo docker stop test1`
     Удалить контейнер `sudo docker rm test1`
 
 10. Создать заново, подключится снова и проверить, что данные остались на месте
+
     ![alt text](image-6.png)
 
 11. Каталог /var/lib/postgres/
+
 ![alt text](image-7.png)

@@ -32,8 +32,8 @@
 
 5. Инициализируем инстанс кластера по его пути и назовем его 'main' и определим что он будет хранить бакапы по выбранному пути
     `pg_probackup-16 add-instance --instance 'main' -D /var/lib/postgresql/16/main -B /home/backups`
-6. #Создадим новую базу данных - `CREATE DATABASE otus;`
-7. Таблицу в этой базе данных и заполним ее тестовыми данными
+6. Создадим новую базу данных - `CREATE DATABASE otus;`
+7. Создадим таблицу в этой бд и заполним ее тестовыми данными
     ```
     create table test(id serial, srt text);
     insert into (srt) values ('aa'),('bb'),('cc');

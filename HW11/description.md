@@ -14,7 +14,9 @@ do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address
 'sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y -q && curl https://install.citusdata.com/community/deb.sh | sudo bash' \
 & done;
 ```
-    ![alt text](image-2.png)
+    
+![alt text](image-2.png)
+
 ```
 for i in {1..3}; \
 do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address' | tail -n 1 | awk '{print $2}') \

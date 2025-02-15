@@ -27,7 +27,8 @@ do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address
 
 ![alt text](image-4.png)
 
-    - Добавим citus в shared_preload_libraries:
+- Добавим citus в hared_preload_libraries:
+
 ```
 for i in {1..3}; \
 do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address' | tail -n 1 | awk '{print $2}') \
@@ -35,7 +36,7 @@ do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address
 'sudo pg_conftool 17 main set shared_preload_libraries citus' \
 & done;
 ```
-    - Настроим доступ к базе
+- Настроим доступ к базе
 ```
 for i in {1..3}; \
 do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address' | tail -n 1 | awk '{print $2}') \

@@ -183,11 +183,17 @@ ALTER TABLE sales
 
 `EXPLAIN ANALYZE SELECT count(*) FROM sales;`
 - citus
+
 ![alt text](image-8.png)
+
 - single Postgres (JIT)
+
 ![alt text](image-9.png)
+
 - single Postgres (без JIT)
+
 ![alt text](image-13.png)
+
 ```
 EXPLAIN ANALYZE
 SELECT
@@ -200,11 +206,17 @@ GROUP BY country
 ORDER BY country;
 ```
 - citus
+
 ![alt text](image-5.png)
+
 - single Postgres (JIT)
+
 ![alt text](image-11.png)
+
 - single Postgres (без JIT)
+
 ![alt text](image-14.png)
+
 ```
 EXPLAIN ANALYZE
 SELECT
@@ -219,8 +231,13 @@ GROUP BY item_type
 ORDER BY item_type DESC;
 ```
 - citus
+
 ![alt text](image-10.png)
+
 - single Postgres (JIT)
+
 ![alt text](image-12.png)
+
 - single Postgres (без JIT)
+
 ![alt text](image-15.png)

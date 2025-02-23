@@ -96,7 +96,7 @@ do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address
 
 3. На всех нодах:
     - Создаем БД `CREATE DATABASE citus;`
-    - В созданной БД добаввляем расширение `CREATE EXTENSION citus;`
+    - В созданной БД добавляем расширение `CREATE EXTENSION citus;`
 
 4. На координаторе:
 

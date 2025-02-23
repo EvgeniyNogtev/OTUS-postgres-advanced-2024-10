@@ -15,7 +15,7 @@
   ```
   ![alt text](image-6.png)
 
--- Развернем 3 ВМ для PostgreSQL:
+- Развернем 3 ВМ для PostgreSQL:
 ```
 for i in {1..2}; do yc compute instance create \
   --name node-$i \
@@ -38,7 +38,7 @@ yc compute instance create \
 ```
   ![alt text](image-7.png)
 
--- Прописываем хосты в каждой ВМ:
+- Прописываем хосты в каждой ВМ:
 ```
 for i in {1..2}; do vm_ip_address=$(yc compute instance show --name node-$i | grep -E ' +address' | tail -n 1 | awk '{print $2}') && ssh -o StrictHostKeyChecking=no -i ~/.ssh/ycssh yc-user@$vm_ip_address <<EOF
 sudo bash -c 'cat >> /etc/hosts <<EOL
@@ -92,21 +92,23 @@ do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address
 'sudo service postgresql restart && sudo update-rc.d postgresql enable' \
 & done;
 ```
---Для координатора повторяем аналогичные действия
+- Для координатора повторяем аналогичные действия
 
 3. На всех нодах:
-    - Создаем БД `CREATE DATABASE citus;`
-    - В созданной БД добавляем расширение `CREATE EXTENSION citus;`
+  - Создаем БД `CREATE DATABASE citus;`
+  - В созданной БД добавляем расширение `CREATE EXTENSION citus;`
 
 4. На координаторе:
 
 - Устанавливаем координатора, добавляем узлы 
+
 ```
 SELECT citus_set_coordinator_host('10.0.0.7', 5432);
 SELECT * FROM citus_add_node('10.0.0.17', 5432);
 SELECT * FROM citus_add_node('10.0.0.5', 5432);
 ```
 - Создаем таблицу
+
 ```
 CREATE TABLE sales (
   region         varchar(500),

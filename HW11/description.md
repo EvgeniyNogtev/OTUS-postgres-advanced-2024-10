@@ -100,8 +100,7 @@ do vm_ip_address=$(yc compute instance show \--name node-$i | grep -E ' +address
 
 4. На координаторе:
 
-- Устанавливаем координатора `SELECT citus_set_coordinator_host('10.0.0.8', 5432);`
-- Добавляем остальные узлы 
+- Устанавливаем координатора, добавляем узлы 
 ```
 SELECT citus_set_coordinator_host('10.0.0.7', 5432);
 SELECT * FROM citus_add_node('10.0.0.17', 5432);
